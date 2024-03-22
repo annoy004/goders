@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Signup from './screens/Signup';
+import Login from './screens/Login';
+import Addtask from './screens/Addtask';
+import NoteState from './context/notes/NoteState';
+
+
+
+import {
+  BrowserRouter as Router,
+  Routes, // Use Routes instead of Switch
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="">
+    <NoteState>
+    <Router>
+      <div className="container">
+     
+        <Routes >
+          <Route exact path="/" element={<Addtask/>}> </Route>
+          <Route exact path="/login" element={<Login/>}> </Route>
+          <Route exact path="/signup" element={<Signup/>}> </Route>
+
+          {/* <Route exact path="/login || /signup" element={<Main/>}> </Route> */}
+
+        </Routes>
+      </div>
+    </Router>
+    </NoteState>
+</div>
   );
 }
 
